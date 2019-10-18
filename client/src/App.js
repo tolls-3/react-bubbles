@@ -20,7 +20,7 @@ function App(props) {
           </NavLink>
           <NavLink to="/bubblepage">Bubble Page</NavLink>
         </span>
-        <button onClick={onLogout}>Logout</button>
+        <button className="button" onClick={onLogout}>Logout</button>
       </nav>
       <div className="App">
         <Route exact path="/" component={Login} />
