@@ -10,13 +10,11 @@ body,
   padding: 0;
 }
 
+
 .App {
   font-family: "Montserrat", sans-serif;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   text-align: center;
-  width: 100%;
+  display: flex;
 
   svg {
     height: 100%;
@@ -119,8 +117,5 @@ form {
     color: white;
     padding: 3px 8px;
     margin-top: 16px;
-    &:hover {
-      background-color: rgb(7, 95, 19);
-    }
   }
 }

@@ -34,7 +34,6 @@ const Login = props => {
   return (
     <>
       <h1>Welcome to the Bubble App!</h1>
-      <p>Build a login page here</p>
       <form onSubmit={handleSubmit}>
         <label>
           Enter Username
@@ -59,7 +58,13 @@ const Login = props => {
           />
         </label>
 
-        <button style={{ width: "35%",marginLeft: "169px",marginTop:10 }} className="button" type="submit">Login</button>
+        <button
+          style={{ width: "35%", marginLeft: "169px", marginTop: 10 }}
+          className="button"
+          type="submit"
+        >
+          Login
+        </button>
       </form>
     </>
   );
