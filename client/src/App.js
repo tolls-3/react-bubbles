@@ -38,7 +38,7 @@ function App(props) {
 }
 
 function withAuthCheck(Component, props) {
-  console.log(props);
+  //console.log(props);
   if (localStorage.getItem("token")) {
     return <Component {...props} />;
   }
