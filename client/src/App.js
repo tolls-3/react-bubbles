@@ -1,21 +1,48 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Route, withRouter, Redirect, NavLink } from "react-router-dom";
 
 import Login from "./components/Login";
+import BubblePage from "./components/BubblePage";
 import "./styles.scss";
 
-function App() {
+function App(props) {
+  //console.log(props)
+  const onLogout = () => {
+    localStorage.removeItem("token");
+    props.history.push("/");
+  };
   return (
-    <Router>
+    <div>
+      <nav className="navbar">
+        <span>
+          <NavLink exact to="/">
+            Login
+          </NavLink>
+          <NavLink to="/bubblepage">Bubble Page</NavLink>
+        </span>
+        <button className="button" onClick={onLogout}>Logout</button>
+      </nav>
       <div className="App">
         <Route exact path="/" component={Login} />
         {/* 
           Build a PrivateRoute component that will 
           display BubblePage when you're authenticated 
         */}
+        <Route
+          path="/bubblepage"
+          render={props => withAuthCheck(BubblePage, props)}
+        />
       </div>
-    </Router>
+    </div>
   );
 }
 
-export default App;
+function withAuthCheck(Component, props) {
+  //console.log(props);
+  if (localStorage.getItem("token")) {
+    return <Component {...props} />;
+  }
+  return <Redirect to="/" />;
+}
+
+export default withRouter(App);
